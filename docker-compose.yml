@@ -1,0 +1,19 @@
+services:
+  cue-sheet:
+    build: .
+    image: theater-cue-sheet:latest
+    container_name: theater-cue-sheet
+    ports:
+      # 宿主机端口:容器端口；宿主机端口可用 CUE_PORT 覆盖
+      - "${CUE_PORT:-3000}:3000"
+    environment:
+      # 数据库文件在容器内的位置（已挂载到卷，无需修改）
+      DB_PATH: /app/data/app.db
+      # 容器内监听端口，需与上面映射的容器端口一致
+      PORT: "3000"
+    volumes:
+      - cue-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  cue-data:

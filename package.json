@@ -1,0 +1,18 @@
+{
+  "name": "theater-cue-sheet",
+  "version": "1.0.0",
+  "description": "小剧团排练用台词提示单 Web 应用：粘贴分场剧本、在台词旁挂灯光/音效提示，版本更新后依据台词与相邻上下文重新定位提示",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "init-db": "node db/init-db.js",
+    "test:e2e": "node test-e2e.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}
